@@ -1,73 +1,83 @@
-# Welcome to your Lovable project
+# NutriTrack 🥗
 
-## Project info
+Your personal health and nutrition companion — track calories, macronutrients, and weight with personalized goals and progress insights.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Features
 
-## How can I edit this code?
+- **Calorie & Macro Tracking** — Log meals with detailed nutritional breakdowns (protein, carbs, fat)
+- **Food Database** — Browse and search from a library of foods, or create your own custom entries
+- **Meal Logging** — Organize intake by meal type (breakfast, lunch, dinner, snack)
+- **Weight Tracker** — Record weight over time and visualize trends with charts
+- **Personalized Goals** — Get calorie and macro targets based on your profile, activity level, and goals (lose, maintain, or gain)
+- **Favorites** — Save frequently eaten foods for quick access
+- **Onboarding Flow** — Guided setup to calculate your daily targets
+- **Responsive Design** — Works seamlessly on desktop and mobile
 
-There are several ways of editing your application.
+## Tech Stack
 
-**Use Lovable**
+- **Frontend:** React, TypeScript, Vite, Tailwind CSS
+- **UI Components:** shadcn/ui, Radix UI
+- **Backend & Auth:** Supabase (PostgreSQL, Auth, Row Level Security)
+- **State Management:** TanStack React Query
+- **Charts:** Recharts
+- **Routing:** React Router
+- **Form Handling:** React Hook Form + Zod validation
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js 18+ or Bun
+- A Supabase project (for database and authentication)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+```bash
+# Clone the repository
+git clone <your-repo-url>
+cd nutritrack
 
-Follow these steps:
+# Install dependencies
+npm install
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Set up environment variables
+cp .env.example .env
+# Add your Supabase URL and anon key to .env
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the dev server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Environment Variables
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+| Variable | Description |
+|---|---|
+| `VITE_SUPABASE_URL` | Your Supabase project URL |
+| `VITE_SUPABASE_PUBLISHABLE_KEY` | Your Supabase anon/public key |
 
-**Use GitHub Codespaces**
+## Project Structure
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```
+src/
+├── components/       # Reusable UI components
+│   └── ui/           # shadcn/ui primitives
+├── contexts/         # React context providers (Auth)
+├── hooks/            # Custom hooks (foods, meals, weight, profile)
+├── integrations/     # Supabase client & types
+├── lib/              # Utilities & nutrition calculator
+├── pages/            # Route pages
+└── types/            # TypeScript type definitions
+```
 
-## What technologies are used for this project?
+## Deployment
 
-This project is built with:
+The app is configured for deployment on Vercel with SPA routing support via `vercel.json`.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```bash
+# Build for production
+npm run build
+```
 
-## How can I deploy this project?
+## License
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+MIT
